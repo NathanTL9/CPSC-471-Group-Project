@@ -5,7 +5,7 @@ class Club(models.Model):
     club_name = models.CharField(max_length=200)
     club_type = models.CharField(max_length=200, default = "none")
     club_budget = models.IntegerField(default= 0)
-    contactEmail = models.EmailField(default = "null@null.ca")
+    contactEmail = models.EmailField(default = "nullnull@null.ca")
 
 
     def __str__(self):
@@ -29,4 +29,3 @@ class Announcment(models.Model):
 
     def __str__(self):
         return self.message
-        
