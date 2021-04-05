@@ -2,15 +2,6 @@ from django.db import models
 from datetime import datetime 
 from django.contrib.auth.models import User
 
-class Club(models.Model):
-    club_name = models.CharField(max_length=200, primary_key = True)
-    club_type = models.CharField(max_length=200, default = "none")
-    club_budget = models.IntegerField(default= 0)
-    contactEmail = models.EmailField(default = "nullnull@null.ca")
-
-
-    def __str__(self):
-        return self.club_name
 
 
 class University(models.Model):
@@ -20,6 +11,18 @@ class University(models.Model):
 
     def __str__(self):
         return self.schoolID
+
+class Club(models.Model):
+    club_name = models.CharField(max_length=200, primary_key = True)
+    schoolID = models.ForeignKey(University, to_field='schoolID', default = "none", on_delete=models.CASCADE)
+    club_type = models.CharField(max_length=200, default = "none")
+    club_budget = models.IntegerField(default= 0)
+    contactEmail = models.EmailField(default = "nullnull@null.ca")
+
+
+    def __str__(self):
+        return self.club_name
+
 
 
 class Room(models.Model):

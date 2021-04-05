@@ -23,6 +23,6 @@ urlpatterns = [
     path('announcements/', include('clubs.urls')),
     path('profile/', include('clubs.urls')),
     path('admin/', admin.site.urls),
-    
+    path('addClub/', include('clubs.urls')),
 
 ]
